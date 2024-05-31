@@ -2,7 +2,7 @@ locals {
  owner = var.owner
  environment = var.environment
  tags ={
-    environment = "dynamic"
+    environment = "secure"
     project = "solar"
  }
 }
