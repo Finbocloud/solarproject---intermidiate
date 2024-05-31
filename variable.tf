@@ -11,28 +11,28 @@ variable "environment" {
 }
 #Resource Group Variables
 variable "rg_name"{
-    description = "resourcegp-name"
-    type        = "string"
+    description = "resource-gp-name"
+    type        = string
     default     = "rg"
 }
 variable "location"{
     description = "resource-location"
-    type        = "string"
+    type        = string
     default     = "uksouth"
 }
 #Window Virtual Machine variables
 variable "win_vm_name"{
-    description = "winvm-name"
-    type        = "string"
-    default     = "winvm"  
+    description = "win-vm-name"
+    type        = string
+    default     = "vm"  
 }
 variable "win_vm_username" {
-  description = "winvm-username"
+  description = "win-vm-username"
   type        = string
   default     = "adminuser"
 }
 variable "win_vm_password" {
-  description = "winvm-password"
+  description = "win-vm-password"
   type        = string
   default     = "P@$$w0rd1234!"
 }
@@ -40,15 +40,15 @@ variable "win_vm_password" {
 variable "db_nsg" {
     description = "nsg-db-name"
     type        = string
-    default     = "newtorksecgpdb"
+    default     = "newtork-sec-gp-db"
 }
 variable "nsg_db_subnet" {
-  description = "nsg-db-subnetnmae"
+  description = "nsg-db-subnet-nmae"
   type        = string
   default     = "subnet"
 }
 variable "db_nsrule" {
-  description = "db-networksecrule-name"
+  description = "db-network-sec-rule-name"
   type        = string
-  default     = "networksecrule"
+  default     = "network-sec-rule"
 }
