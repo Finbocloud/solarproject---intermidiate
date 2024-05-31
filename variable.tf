@@ -52,3 +52,13 @@ variable "db_nsrule" {
   type        = string
   default     = "network-sec-rule"
 }
+variable "thismysql_fs" {
+  description = "mysql flexible server name"
+  type        = string
+  default     = "mysql-flexible-server"
+}
+variable "this_flexible_database" {
+  description = "flexible database name"
+  type        = string
+  default     = "flexible-database"
+}

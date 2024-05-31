@@ -1,18 +1,18 @@
 #Network security Group for database
 resource "azurerm_subnet" "this_nsgdb_subnet" {
-  name                 = "${local.owner}-${local.environment}-${var.nsg_db_subnet}"
+  name                 = "${local.owner}-${var.nsg_db_subnet}-${local.environment}"
   resource_group_name  = azurerm_resource_group.this_rg.name
   virtual_network_name = azurerm_virtual_network.this_vnet.name
   address_prefixes     = ["10.0.4.0/24"]
 }
 resource "azurerm_network_security_group" "this_db_nsg" {
-  name                = "${local.owner}-${local.environment}-${var.db_nsg}"
+  name                = "${local.owner}-${var.db_nsg}-${local.environment}"
   location            = azurerm_resource_group.this_rg.location
   resource_group_name = azurerm_resource_group.this_rg.name
 }
 
 resource "azurerm_network_security_rule" "this_db_nsrule" {
-  name                        = "${local.owner}-${local.environment}-${var.db_nsrule}"
+  name                        = "${local.owner}-${var.db_nsrule}-${local.environment}"
   priority                    = 100
   direction                   = "outbound"
   access                      = "Allow"
