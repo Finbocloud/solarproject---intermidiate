@@ -62,3 +62,19 @@ variable "this_flexible_database" {
   type        = string
   default     = "flexible-database"
 }
+variable "virtual_network" {
+  description = "virtual network name"
+  type        = string
+  default     = "vnet"
+}
+variable "network_subnet" {
+  description = "network-subnet"
+  type        = string
+  default     = "subnet"
+}
+variable "network_nic" {
+  description = "network interface card"
+  type        = string
+  default     = "nic"
+}
+
