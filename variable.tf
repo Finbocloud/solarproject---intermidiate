@@ -103,7 +103,7 @@ variable "db_private_endpoint" {
   default     = "db-privateendpoint"
 }
 variable "db_nsg" {
-  description = "db network security group name"
+  description = "database network security group name"
   type        = string
   default     = "db-nsg"
 }
