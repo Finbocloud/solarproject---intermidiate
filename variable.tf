@@ -92,4 +92,8 @@ variable "kv_private_subnet" {
   type        = string
   default     = "kv-subnet-name"
 }
-
+variable "db_private_endpoint" {
+  description = "db priavte endpoint name"
+  type        = string
+  default     = "db-privateendpoint-name"
+}
