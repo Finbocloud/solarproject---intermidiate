@@ -77,10 +77,19 @@ variable "network_nic" {
   type        = string
   default     = "nic"
 }
-
-
-
-variable "azure_bastion" {
-  description = ""
-  
+variable "kv_name" {
+  description = "keyvault name"
+  type        = string
+  default     = "kv"
 }
+variable "kv_subnet" {
+  description = "keyvault subnet name"
+  type        = string
+  default     = "kv-subnet-name"
+}
+variable "kv_private_subnet" {
+  description = "keyvault subnet name"
+  type        = string
+  default     = "kv-subnet-name"
+}
+
