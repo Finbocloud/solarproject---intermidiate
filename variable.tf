@@ -100,5 +100,11 @@ variable "db_subnet" {
 variable "db_private_endpoint" {
   description = "db priavte endpoint name"
   type        = string
-  default     = "db-privateendpoint-name"
+  default     = "db-privateendpoint"
 }
+variable "db_nsg" {
+  description = "db network security group name"
+  type        = string
+  default     = "db-nsg"
+}
+

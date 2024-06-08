@@ -15,7 +15,7 @@ resource "azurerm_subnet" "this_db_subnet" {
   depends_on = [ azurerm_virtual_network.this_vnet ]
 }
 resource "azurerm_network_security_group" "this_db_nsg" {
-  name                = "nsg-db-name"
+  name                = var.db_nsg
   location            = azurerm_resource_group.this_rg.location
   resource_group_name = azurerm_resource_group.this_rg.name
   depends_on = [ azurerm_subnet.this_db_subnet ]
