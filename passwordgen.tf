@@ -1,0 +1,10 @@
+resource "random_password" "this_password" {
+  length           = 11
+  lower            = true
+  upper            = true
+  special          = true
+  min_upper        = 1
+  min_lower        = 1
+  min_special      = 1
+  override_special = "!#$%&"
+}
