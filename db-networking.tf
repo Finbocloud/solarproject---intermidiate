@@ -40,7 +40,7 @@ resource "azurerm_network_interface_security_group_association" "this_db_network
   depends_on = [ azurerm_subnet.this_db_subnet ]
 }
 resource "azurerm_private_endpoint" "this_db_private_endpoint" {
-  name                = "db-private-endpoint"
+  name                = var.db_private_endpoint
   location            = azurerm_resource_group.this_rg.location
   resource_group_name = azurerm_resource_group.this_rg.name
   subnet_id           = azurerm_subnet.this_db_subnet.id  
