@@ -97,3 +97,8 @@ variable "db_subnet" {
   type        = string
   default     = "db-subnet-name"
 }
+variable "db_private_endpoint" {
+  description = "db priavte endpoint name"
+  type        = string
+  default     = "db-privateendpoint-name"
+}
