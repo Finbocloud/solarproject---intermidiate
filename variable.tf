@@ -92,4 +92,8 @@ variable "kv_private_subnet" {
   type        = string
   default     = "kv-subnet-name"
 }
-
+variable "nsg_db_name" {
+  description = "nsg database name"
+  type        = string
+  default     = "nsg-db-name"
+}
