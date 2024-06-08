@@ -92,4 +92,8 @@ variable "kv_private_subnet" {
   type        = string
   default     = "kv-subnet-name"
 }
-
+variable "db_subnet" {
+  description = "db subnet"
+  type        = string
+  default     = "db-subnet-name"
+}
