@@ -85,15 +85,15 @@ variable "kv_name" {
 variable "kv_subnet" {
   description = "keyvault subnet name"
   type        = string
-  default     = "kv-subnet-name"
+  default     = "kv-subnet"
 }
 variable "kv_private_subnet" {
   description = "keyvault subnet name"
   type        = string
-  default     = "kv-subnet-name"
+  default     = "kv-subnet"
 }
 variable "db_subnet" {
   description = "db subnet"
   type        = string
-  default     = "db-subnet-name"
+  default     = "db-subnet"
 }
