@@ -19,5 +19,5 @@ resource "azurerm_mysql_flexible_database" "this_mysql_flexible_database" {
   server_name         = azurerm_mysql_flexible_server.this_mysql_flexible_server.name
   charset             = "utf8"
   collation           = "utf8_unicode_ci"
-  depends_on = [ azurerm_mysql_flexible_server.this_mysql_flexible_server ]
+  depends_on = [ azurerm_mysql_flexible_server.this_mysql_flexible_server]
   }

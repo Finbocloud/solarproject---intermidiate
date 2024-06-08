@@ -78,3 +78,9 @@ variable "network_nic" {
   default     = "nic"
 }
 
+
+
+variable "azure_bastion" {
+  description = ""
+  
+}
