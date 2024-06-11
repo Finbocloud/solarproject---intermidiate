@@ -11,7 +11,8 @@ resource "azurerm_mysql_flexible_server" "this_mysql_flexible_server" {
   identity {
     type         = "UserAssigned"
     identity_ids = [azurerm_user_assigned_identity.this_manageidentity]
-  }  // depends_on = [azurerm_private_dns_zone_virtual_network_link.example]
+  } 
+  depends_on = [azurerm_private_dns_zone_virtual_network_link.example]
 }
 resource "azurerm_mysql_flexible_database" "this_mysql_flexible_database" {
   name                = "${local.owner}-${var.this_flexible_database}-${local.environment}"
