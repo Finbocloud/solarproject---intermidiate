@@ -1,30 +1,30 @@
 #Infra information
 variable "owner" {
-    description = "solar-owner"
-    type        = string
-    default     = "solar"
+  description = "solar-owner"
+  type        = string
+  default     = "solar"
 }
 variable "environment" {
-    description = "solar-environment"
-    type        = string
-    default     = "secure"
+  description = "solar-environment"
+  type        = string
+  default     = "secure"
 }
 #Resource Group Variables
-variable "rg_name"{
-    description = "resource-gp-name"
-    type        = string
-    default     = "rg"
+variable "rg_name" {
+  description = "resource-gp-name"
+  type        = string
+  default     = "rg"
 }
-variable "location"{
-    description = "resource-location"
-    type        = string
-    default     = "uksouth"
+variable "location" {
+  description = "resource-location"
+  type        = string
+  default     = "uksouth"
 }
 #Window Virtual Machine variables
-variable "win_vm_name"{
-    description = "win-vm-name"
-    type        = string
-    default     = "vm"  
+variable "win_vm_name" {
+  description = "win-vm-name"
+  type        = string
+  default     = "vm"
 }
 variable "win_vm_username" {
   description = "win-vm-username"
@@ -38,9 +38,9 @@ variable "win_vm_password" {
 }
 #Network security group for database 
 variable "db_nsg" {
-    description = "nsg-db-name"
-    type        = string
-    default     = "newtork-sec-gp-db"
+  description = "nsg-db-name"
+  type        = string
+  default     = "newtork-sec-gp-db"
 }
 variable "nsg_db_subnet" {
   description = "nsg-db-subnet-nmae"

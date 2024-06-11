@@ -13,18 +13,18 @@ resource "azurerm_private_endpoint" "this_private_endpoint" {
   location            = azurerm_resource_group.this_rg.location
   resource_group_name = azurerm_resource_group.this_rg.name
   subnet_id           = azurerm_subnet.this_kv_subnet.id
-  
+
 
   private_service_connection {
     name                           = "secure-privateserviceconnection"
     private_connection_resource_id = azurerm_key_vault.this_keyvault.id
     is_manual_connection           = false
-    subresource_names = ["vault"]
+    subresource_names              = ["vault"]
     #vault name is a conactant, do not change the name
     #for dbnetworking.tf , use the name ["MySqlServer"]
   }
   private_dns_zone_group {
-    name = "mykvdnsgroup"
+    name                 = "mykvdnsgroup"
     private_dns_zone_ids = [azurerm_private_dns_zone.this_kv_private_zone.id]
   }
 }

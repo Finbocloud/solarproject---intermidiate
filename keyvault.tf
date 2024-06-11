@@ -26,7 +26,7 @@ resource "azurerm_key_vault" "this_keyvault" {
       "List"
     ]
   }
-   access_policy {
+  access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
     #copy object ID on the portal, search for ENTRA and, click users, copy object id
     #create a new user policy by coping the object ID and create a new user policy

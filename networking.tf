@@ -23,3 +23,4 @@ resource "azurerm_network_interface" "this_nic" {
     private_ip_address_allocation = "Dynamic"
   }
 }
+
