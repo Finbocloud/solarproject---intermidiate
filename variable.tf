@@ -77,7 +77,7 @@ variable "network_nic" {
   type        = string
   default     = "nic"
 }
-variable "kv_name" {
+variable "key_vault" {
   description = "keyvault name"
   type        = string
   default     = "kv"
@@ -112,13 +112,8 @@ variable "vm_secret" {
   type = string
   default = "vm-secret" 
 }
-variable "felxible_server_secret" {
+variable "flexible_server_secret" {
   description = "msql felxible secret keyvault name"
   type = string
-  default = "msql flexible server secret" 
-}
-variable "this_kv" {
-  description = "msql felxible secret keyvault name"
-  type = string
-  default = "msql flexible server secret" 
+  default = "msql-flexible-server-ecret" 
 }

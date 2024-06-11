@@ -1,7 +1,7 @@
 #bad to put all current configuration
 data "azurerm_client_config" "current" {}
 resource "azurerm_key_vault" "this_keyvault" {
-  name                       = "${local.owner}-${var.kv_name}-${local.environment}"
+  name                       = "${local.owner}-${var.key_vault}-${local.environment}"
   location                   = azurerm_resource_group.this_rg.location
   resource_group_name        = azurerm_resource_group.this_rg.name
   tenant_id                  = data.azurerm_client_config.current.tenant_id
@@ -56,12 +56,12 @@ resource "azurerm_key_vault" "this_keyvault" {
 
 # Assuming you have a for_each loop defined
 resource "azurerm_key_vault_secret" "this_vm_secret" {
-  name         = var.vm_secret
+  name         = "${local.owner}-${var.vm_secret}-${local.environment}"
   value        = random_password.this_password.result
   key_vault_id = azurerm_key_vault.this_keyvault.id
 }
 resource "azurerm_key_vault_secret" "this_felxible_Server_secret" {
-  name         = var.felxible_server_secret
+  name         = "${local.owner}-${var.flexible_server_secret}-${local.environment}"
   value        = random_password.this_password.result
   key_vault_id = azurerm_key_vault.this_keyvault.id
 }
