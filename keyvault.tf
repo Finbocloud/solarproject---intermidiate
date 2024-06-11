@@ -56,7 +56,12 @@ resource "azurerm_key_vault" "this_keyvault" {
 
 # Assuming you have a for_each loop defined
 resource "azurerm_key_vault_secret" "this_vm_secret" {
-  name         = "secret-for-vm"
+  name         = var.vm_secret
+  value        = random_password.this_password.result
+  key_vault_id = azurerm_key_vault.this_keyvault.id
+}
+resource "azurerm_key_vault_secret" "this_felxible_Server_secret" {
+  name         = var.felxible_server_secret
   value        = random_password.this_password.result
   key_vault_id = azurerm_key_vault.this_keyvault.id
 }

@@ -6,8 +6,6 @@ resource "azurerm_subnet" "this_kv_subnet" {
   address_prefixes     = ["10.0.3.0/24"]
 
 }
-
-
 resource "azurerm_private_endpoint" "this_private_endpoint" {
   name                = "${local.owner}-${var.kv_private_subnet}-${local.environment}"
   location            = azurerm_resource_group.this_rg.location

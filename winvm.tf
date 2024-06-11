@@ -6,7 +6,7 @@ resource "azurerm_windows_virtual_machine" "this_winvm" {
   admin_username      = var.win_vm_username
   #value for password will be in the KV
   #and accessed only by managed identity resource
-  admin_password      = var.win_vm_password
+  admin_password      =  azurerm_key_vault_secret.this_vm_secret.value
   network_interface_ids = [
     azurerm_network_interface.this_vm_nic.id,
   ]

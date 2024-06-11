@@ -52,7 +52,7 @@ variable "db_nsrule" {
   type        = string
   default     = "network-sec-rule"
 }
-variable "thismysql_fs" {
+variable "this_mysql_fs" {
   description = "mysql flexible server name"
   type        = string
   default     = "mysql-flexible-server"
@@ -107,4 +107,18 @@ variable "db_nsg" {
   type        = string
   default     = "db-nsg"
 }
-
+variable "vm_secret" {
+  description = "vm secret keyvault name"
+  type = string
+  default = "vm-secret" 
+}
+variable "felxible_server_secret" {
+  description = "msql felxible secret keyvault name"
+  type = string
+  default = "msql flexible server secret" 
+}
+variable "this_kv" {
+  description = "msql felxible secret keyvault name"
+  type = string
+  default = "msql flexible server secret" 
+}
