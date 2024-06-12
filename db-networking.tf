@@ -54,7 +54,7 @@ resource "azurerm_private_endpoint" "this_db_private_endpoint" {
     name                 = "mysqldns-group"
     private_dns_zone_ids = [azurerm_private_dns_zone.this_db_private_dns.id]
   }
-    depends_on = [ azurerm_private_dns_zone.this_private_dns ]
+  depends_on = [azurerm_private_dns_zone.this_private_dns]
 }
 resource "azurerm_private_dns_zone" "this_db_private_dns" {
   name                = "privatelink.mysql.database.azure.com"

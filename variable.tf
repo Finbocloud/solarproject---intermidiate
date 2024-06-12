@@ -109,11 +109,11 @@ variable "db_nsg" {
 }
 variable "vm_secret" {
   description = "vm secret keyvault name"
-  type = string
-  default = "vm-secret" 
+  type        = string
+  default     = "vm-secret"
 }
 variable "flexible_server_secret" {
   description = "msql felxible secret keyvault name"
-  type = string
-  default = "msql-flexible-server-ecret" 
+  type        = string
+  default     = "msql-flexible-server-ecret"
 }
