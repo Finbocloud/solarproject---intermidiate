@@ -3,15 +3,17 @@ resource "azurerm_subnet" "this_db_subnet" {
   resource_group_name  = azurerm_resource_group.this_rg.name
   virtual_network_name = azurerm_virtual_network.this_vnet.name
   address_prefixes     = ["10.0.9.0/24"]
-  delegation {
+  
+  #delegating a datebase server to a particular subnet will make the subnet be used for only that server
+  /* delegation {
    name = "myDelegation"
    service_delegation {
     name = "Microsoft.DBforMySQL/flexibleServers"
     actions = [
      "Microsoft.Network/virtualNetworks/subnets/join/action",
-   ]
+   ] 
   }
-  }
+  }*/
   depends_on = [azurerm_virtual_network.this_vnet]
 }
 resource "azurerm_network_security_group" "this_db_nsg" {

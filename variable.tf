@@ -120,5 +120,12 @@ variable "vm_secret" {
 variable "flexible_server_secret" {
   description = "msql felxible secret keyvault name"
   type        = string
-  default     = "msql-flexible-server-ecret"
+  default     = "msql-flexible-server-secret"
 }
+variable "kv_private_service_connection" {
+  description = "private_service_connection"
+  type        = string
+  default     = "secure-privateserviceconnection"
+}
+
+

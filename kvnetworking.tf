@@ -10,11 +10,11 @@ resource "azurerm_private_endpoint" "this_private_endpoint" {
   resource_group_name = azurerm_resource_group.this_rg.name
   subnet_id           = azurerm_subnet.this_kv_subnet.id
     private_service_connection {
-    name                           = "secure-privateserviceconnection"
+    name                           = var.kv_private_service_connection
     private_connection_resource_id = azurerm_key_vault.this_keyvault.id
     is_manual_connection           = false
     subresource_names              = ["vault"]
-    #vault name is a conactant, do not change the name
+    #vault name is a constant, do not change the name
     #for dbnetworking.tf , use the name ["MySqlServer"]
   }
   private_dns_zone_group {
