@@ -15,7 +15,7 @@ resource "azurerm_key_vault" "this_keyvault" {
   }
 
   access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
+    tenant_id = data.azurerm_client_config.rasheed.tenant_id
     # HOW TO COPY object ID on the portal, search for ENTRA and, click users, copy object id
     #create a new user policy by coping the object ID and create a new user policy
     object_id = "d78ff511-9dec-4dbd-a574-36e6ada5e6bd"

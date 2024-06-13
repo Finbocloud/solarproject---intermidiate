@@ -6,12 +6,13 @@ resource "azurerm_mysql_flexible_server" "this_mysql_flexible_server" {
   administrator_password = azurerm_key_vault_secret.this_felxible_Server_secret.value
   backup_retention_days  = 7
   #delegated_subnet_id    = azurerm_subnet.this_db_subnet.id
-  private_dns_zone_id    = azurerm_private_dns_zone.this_private_dns.id
+  private_dns_zone_id    = azurerm_private_dns_zone.this_db_private_dns.id
   sku_name               = "GP_Standard_D2ds_v4"
   identity {
     type         = "UserAssigned"
     identity_ids = [azurerm_user_assigned_identity.this_manageidentity]
-  }  // depends_on = [azurerm_private_dns_zone_virtual_network_link.example]
+  }  
+  depends_on = [azurerm_private_dns_zone_virtual_network_link.this_db_net_private_dns_zone_virtual_network_link]
 }
 resource "azurerm_mysql_flexible_database" "this_mysql_flexible_database" {
   name                = "${local.owner}-${var.this_flexible_database}-${local.environment}"
