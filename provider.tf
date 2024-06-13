@@ -11,5 +11,5 @@ provider "azurerm" {
   features {}
 }
 provider "random" {
-  # Configuration options
+  # Configuration options for random passsword generator
 }

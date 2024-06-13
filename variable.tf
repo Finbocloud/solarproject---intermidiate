@@ -138,7 +138,7 @@ variable "db_private_dns_group" {
   default     = "db-private-dns-group"
 }
 variable "db_private_dns_zone" {
-  description = "db private dense zone name"
+  description = "db private dns zone name"
   type        = string
   default     = "db-private-dns-zone"
 }
@@ -152,3 +152,10 @@ variable "db_private_service_connection" {
   type        = string
   default     = "db-private-service-connection"
 }
+variable "kv_private_service_connection" {
+  description = "private_service_connection"
+  type        = string
+  default     = "secure-privateserviceconnection"
+}
+
+
