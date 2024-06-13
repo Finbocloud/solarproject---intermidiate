@@ -45,24 +45,24 @@ resource "azurerm_private_endpoint" "this_db_private_endpoint" {
   resource_group_name = azurerm_resource_group.this_rg.name
   subnet_id           = azurerm_subnet.this_db_subnet.id
   private_service_connection {
-    name                           = "this-privateserviceconnection"
+    name                           = var.db_private_service_connection     
     private_connection_resource_id = azurerm_mysql_flexible_server.this_mysql_flexible_server.id
     is_manual_connection           = false
     subresource_names              = ["mysqlServer"]
   }
   private_dns_zone_group {
-    name                 = "mysqldns-group"
+    name                 = var.db_private_dns_group
     private_dns_zone_ids = [azurerm_private_dns_zone.this_db_private_dns.id]
   }
   depends_on = [azurerm_private_dns_zone.this_private_dns]
 }
 resource "azurerm_private_dns_zone" "this_db_private_dns" {
-  name                = "privatelink.mysql.database.azure.com"
+  name                = var.db_private_dns_zone
   resource_group_name = azurerm_resource_group.this_rg.name
   depends_on          = [azurerm_resource_group.this_rg]
 }
 resource "azurerm_private_dns_zone_virtual_network_link" "this_db_net_private_dns_zone_virtual_network_link" {
-  name                  = "this-db-private-dns-virtual-network"
+  name                  = var.db_private_dns_vnet_link
   resource_group_name   = azurerm_resource_group.this_rg.name
   private_dns_zone_name = azurerm_private_dns_zone.this_db_private_dns.name
   virtual_network_id    = azurerm_virtual_network.this_vnet.id

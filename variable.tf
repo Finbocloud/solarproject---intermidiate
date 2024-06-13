@@ -120,5 +120,35 @@ variable "vm_secret" {
 variable "flexible_server_secret" {
   description = "msql felxible secret keyvault name"
   type        = string
-  default     = "msql-flexible-server-ecret"
+  default     = "msql-flexible-server-secret"
+}
+variable "bastion_public_ip" {
+  description = "azure bashion public ip name"
+  type        = string
+  default     = "Azure-bashion-public-ip"
+}
+variable "bastion_host" {
+  description = "azure bashion host name"
+  type        = string
+  default     = "bastion-host"
+}
+variable "db_private_dns_group" {
+  description = "db private dns group name"
+  type        = string
+  default     = "db-private-dns-group"
+}
+variable "db_private_dns_zone" {
+  description = "db private dense zone name"
+  type        = string
+  default     = "db-private-dns-zone"
+}
+variable "db_private_dns_vnet_link" {
+  description = "db private dns vnet link name"
+  type        = string
+  default     = "db-private-dns-vnet-link"
+}
+variable "db_private_service_connection" {
+  description = "db private dns service connection name"
+  type        = string
+  default     = "db-private-service-connection"
 }
