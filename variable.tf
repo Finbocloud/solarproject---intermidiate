@@ -62,6 +62,11 @@ variable "this_flexible_database" {
   type        = string
   default     = "flexible-database"
 }
+variable "flexible_db_username" {
+  description = "flexible database admin login username"
+  type        = string
+  default     = "psqladmin"
+}
 variable "virtual_network" {
   description = "virtual network name"
   type        = string
