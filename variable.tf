@@ -157,5 +157,28 @@ variable "kv_private_service_connection" {
   type        = string
   default     = "secure-privateserviceconnection"
 }
-
-
+variable "vm_nsg_subnet" {
+  description = "nsg vm subnet name"
+  type        = string
+  default     = "nsg-vm_subnet"
+}
+variable "vm_nsg" {
+  description = "vm network security group name"
+  type        = string
+  default     = "vm_nsg"
+}
+variable "vm_nsrule" {
+  description = "vm nsrule name"
+  type        = string
+  default     = "vm-nsrule-name"
+  }
+variable "network_vm_nic" {
+  description = "vm network interface card"
+  type        = string
+  default     = "vm-network-interface-card"
+  }
+  variable "bastion_nsrule" {
+  description = "bastion network security rule name"
+  type        = string
+  default     = "bastion-nsrule"
+  }
