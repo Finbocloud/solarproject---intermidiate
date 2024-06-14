@@ -158,4 +158,6 @@ variable "kv_private_service_connection" {
   default     = "secure-privateserviceconnection"
 }
 
+nsg_vm_subnet
 
+vm_nsg
