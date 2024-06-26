@@ -18,17 +18,17 @@ resource "azurerm_private_endpoint" "this_private_endpoint" {
     #for dbnetworking.tf , use the name ["MySqlServer"]
   }
   private_dns_zone_group {
-    name                 = "mykvdnsgroup"
+    name                 = var.kv_private_dns_zone_group
     private_dns_zone_ids = [azurerm_private_dns_zone.this_kv_private_zone.id]
   }
 }
-resource "azurerm_private_dns_zone" "this_kv_private_zone" {
-  name                = "privatelink.vaultcore.azure.net"
+resource "azurerm_private_dns_zone" "this_kv_private_dns_zone" {
+  name                = var.kv_private_dns_zone
   resource_group_name = azurerm_resource_group.this_rg.name
 }
 resource "azurerm_private_dns_zone_virtual_network_link" "this_kv_private_dns_zone_virtual_network_link" {
-  name                  = "kv-dns-private-network-link"
+  name                  = var.kv_private_dns_zone_virtual_network_link
   resource_group_name   = azurerm_resource_group.this_rg.name
-  private_dns_zone_name = azurerm_private_dns_zone.this_kv_private_zone.name
+  private_dns_zone_name = azurerm_private_dns_zone.this_kv_private_dns_zone.name
   virtual_network_id    = azurerm_virtual_network.this_vnet.id
 }

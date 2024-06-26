@@ -1,10 +1,10 @@
 #Network security Group for database
-resource "azurerm_subnet" "this_vmnsg_subnet" {
+/* resource "azurerm_subnet" "this_vmnsg_subnet" {
   name                 = "${local.owner}-${var.vm_nsg_subnet}-${local.environment}"
   resource_group_name  = azurerm_resource_group.this_rg.name
   virtual_network_name = azurerm_virtual_network.this_vnet.name
   address_prefixes     = ["10.0.11.0/24"]
-}
+} */
 resource "azurerm_network_interface" "this_vm_nic" {
   name                = "${local.owner}-${var.network_vm_nic}-${local.environment}"
   location            = azurerm_resource_group.this_rg.location
@@ -12,9 +12,9 @@ resource "azurerm_network_interface" "this_vm_nic" {
 
   ip_configuration {
     name                          = "internal"
-    subnet_id                     = azurerm_subnet.this_vmnsg_subnet.id
+    subnet_id                     = azurerm_subnet.this_subnet.id
     private_ip_address_allocation = "Static"
-    private_ip_address            = "10.0.11.9"
+    private_ip_address            = "10.0.2.9" 
     #The first 1-4 Ip address are reserved so start from 10..0.11.5 and above 5
   }
 }
@@ -56,6 +56,6 @@ resource "azurerm_network_security_rule" "this_bastion_nsrule" {
 }
 
 resource "azurerm_subnet_network_security_group_association" "this_vm_network_security_group_association" {
-  subnet_id                 = azurerm_subnet.this_vmnsg_subnet.id
+  subnet_id                 = azurerm_subnet.this_subnet.id
   network_security_group_id = azurerm_network_security_group.this_vm_nsg.id
 }

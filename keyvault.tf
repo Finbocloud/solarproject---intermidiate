@@ -10,7 +10,7 @@ resource "azurerm_key_vault" "this_keyvault" {
   network_acls {
     default_action             = "Deny"
     bypass                     = "AzureServices"
-    ip_rules                   = ["82.6.69.66"]#this is my system IP
+    ip_rules                   = ["82.6.69.66"] #this is my system IP
     virtual_network_subnet_ids = []
   }
 }
@@ -21,22 +21,22 @@ resource "azurerm_key_vault_access_policy" "this_rasheed_access_policy" {
   object_id    = "edb0e8ca-1bad-4b88-b498-cd3bb9b44e52"
 
   secret_permissions = [
-      "Set",
-      "Get",
-      "Delete",
-      "List"
-    ]
+    "Set",
+    "Get",
+    "Delete",
+    "List"
+  ]
 }
 
 resource "azurerm_key_vault_access_policy" "this_user_assigned_identity" {
   key_vault_id = azurerm_key_vault.this_keyvault.id
   tenant_id    = data.azurerm_client_config.current.tenant_id
-  object_id = azurerm_user_assigned_identity.this_manageidentity.principal_id
-    secret_permissions = [
+  object_id    = azurerm_user_assigned_identity.this_manageidentity.principal_id
+  secret_permissions = [
 
-      "Get"
+    "Get"
 
-    ]
+  ]
 }
 
 # Assuming you have a for_each loop defined

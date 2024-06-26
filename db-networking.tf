@@ -56,17 +56,15 @@ resource "azurerm_private_endpoint" "this_db_private_endpoint" {
     name                 = var.db_private_dns_group
     private_dns_zone_ids = [azurerm_private_dns_zone.this_db_private_dns.id]
   }
-  depends_on = [azurerm_private_dns_zone.this_db_private_dns]
+  #depends_on = [azurerm_private_dns_zone.this_db_private_dns]
 }
 resource "azurerm_private_dns_zone" "this_db_private_dns" {
   name                = var.db_private_dns_zone
   resource_group_name = azurerm_resource_group.this_rg.name
-  depends_on          = [azurerm_resource_group.this_rg]
 }
 resource "azurerm_private_dns_zone_virtual_network_link" "this_db_net_private_dns_zone_virtual_network_link" {
   name                  = var.db_private_dns_vnet_link
   resource_group_name   = azurerm_resource_group.this_rg.name
   private_dns_zone_name = azurerm_private_dns_zone.this_db_private_dns.name
   virtual_network_id    = azurerm_virtual_network.this_vnet.id
-  depends_on            = [azurerm_private_dns_zone.this_db_private_dns]
 }

@@ -79,7 +79,7 @@ variable "network_nic" {
 variable "key_vault" {
   description = "keyvault name"
   type        = string
-  default     = "kv"
+  default     = "kv-1"
 }
 variable "kv_subnet" {
   description = "keyvault subnet name"
@@ -134,12 +134,12 @@ variable "db_private_dns_group" {
 variable "db_private_dns_zone" {
   description = "db private dns zone name"
   type        = string
-  default     = "db-private-dns-zone"
+  default     = "privatelink.mysql.database.azure.com"
 }
 variable "db_private_dns_vnet_link" {
   description = "db private dns vnet link name"
   type        = string
-  default     = "db-private-dns-vnet-link"
+  default     = "dbvnetlink"
 }
 variable "db_private_service_connection" {
   description = "db private dns service connection name"
@@ -176,3 +176,20 @@ variable "bastion_nsrule" {
   type        = string
   default     = "bastion-nsrule"
 }
+variable "kv_private_dns_zone_group" {
+  description = "kv private dns zone group"
+  type        = string
+  default     = "kv-private-dns-zone-group"
+}
+variable "kv_private_dns_zone" {
+  description = "kv private dns zone"
+  type        = string
+  default     = "privatelink.vaultcore.azure.net"
+}
+variable "kv_private_dns_zone_virtual_network_link" {
+  description = "kv private dns zone vnet link"
+  type        = string
+  default     = "kv-private-dns-zone-vnet-link"
+}
+
+

@@ -5,7 +5,7 @@ resource "azurerm_user_assigned_identity" "this_manageidentity" {
   resource_group_name = azurerm_resource_group.this_rg.name
 }
 resource "azurerm_role_assignment" "this_kv_role" {
-  scope                = azurerm_key_vault.this_keyvault.id 
+  scope                = azurerm_key_vault.this_keyvault.id
   role_definition_name = "Reader"
   principal_id         = azurerm_user_assigned_identity.this_manageidentity.principal_id
 }
