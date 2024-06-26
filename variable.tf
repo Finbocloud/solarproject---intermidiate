@@ -36,12 +36,6 @@ variable "win_vm_password" {
   type        = string
   default     = "P@$$w0rd1234!"
 }
-#Network security group for database 
-variable "db_nsg" {
-  description = "nsg-db-name"
-  type        = string
-  default     = "newtork-sec-gp-db"
-}
 variable "nsg_db_subnet" {
   description = "nsg-db-subnet-nmae"
   type        = string
@@ -130,7 +124,7 @@ variable "bastion_public_ip" {
 variable "bastion_host" {
   description = "azure bashion host name"
   type        = string
-  default     = "bastion-host"
+  default     = "azurebastionhost"
 }
 variable "db_private_dns_group" {
   description = "db private dns group name"
@@ -171,14 +165,14 @@ variable "vm_nsrule" {
   description = "vm nsrule name"
   type        = string
   default     = "vm-nsrule-name"
-  }
+}
 variable "network_vm_nic" {
   description = "vm network interface card"
   type        = string
   default     = "vm-network-interface-card"
-  }
-  variable "bastion_nsrule" {
+}
+variable "bastion_nsrule" {
   description = "bastion network security rule name"
   type        = string
   default     = "bastion-nsrule"
-  }
+}

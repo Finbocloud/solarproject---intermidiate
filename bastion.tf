@@ -13,7 +13,7 @@ resource "azurerm_public_ip" "this_azure_public_ip" {
   sku                 = "Standard"
 }
 
-resource "azurerm_bastion_host" "this_azure_bastion_host " {
+resource "azurerm_bastion_host" "this_azure_bastion_host" {
   name                = var.bastion_host
   location            = azurerm_resource_group.this_rg.location
   resource_group_name = azurerm_resource_group.this_rg.name

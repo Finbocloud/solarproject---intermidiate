@@ -9,7 +9,7 @@ resource "azurerm_private_endpoint" "this_private_endpoint" {
   location            = azurerm_resource_group.this_rg.location
   resource_group_name = azurerm_resource_group.this_rg.name
   subnet_id           = azurerm_subnet.this_kv_subnet.id
-    private_service_connection {
+  private_service_connection {
     name                           = var.kv_private_service_connection
     private_connection_resource_id = azurerm_key_vault.this_keyvault.id
     is_manual_connection           = false
