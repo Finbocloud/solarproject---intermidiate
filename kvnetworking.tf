@@ -19,7 +19,7 @@ resource "azurerm_private_endpoint" "this_private_endpoint" {
   }
   private_dns_zone_group {
     name                 = var.kv_private_dns_zone_group
-    private_dns_zone_ids = [azurerm_private_dns_zone.this_kv_private_zone.id]
+    private_dns_zone_ids = [azurerm_private_dns_zone.this_kv_private_dns_zone.id]
   }
 }
 resource "azurerm_private_dns_zone" "this_kv_private_dns_zone" {
