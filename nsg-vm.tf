@@ -50,7 +50,6 @@ resource "azurerm_network_security_rule" "this_bastion_nsrule" {
   destination_port_range     = "3306"
   source_address_prefix      = "VirtualNetwork"
   destination_address_prefix = "VirtualNetwork"
-  # [0] in line 37 means it should grab the first IP address of the private endpoint
   resource_group_name         = azurerm_resource_group.this_rg.name
   network_security_group_name = azurerm_network_security_group.this_vm_nsg.name
 }
