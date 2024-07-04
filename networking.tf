@@ -12,7 +12,7 @@ resource "azurerm_subnet" "this_subnet" {
   address_prefixes     = ["10.0.2.0/24"]
 }
 
-resource "azurerm_network_interface" "this_nic" {
+/* resource "azurerm_network_interface" "this_nic" {
   name                = "${local.owner}-${var.network_nic}-${local.environment}"
   location            = azurerm_resource_group.this_rg.location
   resource_group_name = azurerm_resource_group.this_rg.name
@@ -22,5 +22,5 @@ resource "azurerm_network_interface" "this_nic" {
     subnet_id                     = azurerm_subnet.this_subnet.id
     private_ip_address_allocation = "Dynamic"
   }
-}
+} */
 
