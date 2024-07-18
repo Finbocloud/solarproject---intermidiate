@@ -10,12 +10,25 @@ resource "azurerm_key_vault" "this_keyvault" {
   network_acls {
     default_action             = "Deny"
     bypass                     = "AzureServices"
-    ip_rules                   = ["82.6.69.66"] #this is my system IP
+    ip_rules                   = ["82.6.69.66"] #system IP
     virtual_network_subnet_ids = []
   }
 }
 
 resource "azurerm_key_vault_access_policy" "this_rasheed_access_policy" {
+  key_vault_id = azurerm_key_vault.this_keyvault.id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
+  object_id    = "e56f3662-0ea4-4e14-83a5-a1e4939aa208"
+
+  secret_permissions = [
+    "Set",
+    "Get",
+    "Delete",
+    "List"
+  ]
+}
+
+resource "azurerm_key_vault_access_policy" "this_eka_access_policy" {
   key_vault_id = azurerm_key_vault.this_keyvault.id
   tenant_id    = data.azurerm_client_config.current.tenant_id
   object_id    = "edb0e8ca-1bad-4b88-b498-cd3bb9b44e52"

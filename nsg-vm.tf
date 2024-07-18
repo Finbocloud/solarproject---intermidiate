@@ -14,8 +14,8 @@ resource "azurerm_network_interface" "this_vm_nic" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.this_subnet.id
     private_ip_address_allocation = "Static"
-    private_ip_address            = "10.0.2.9" 
-    #The first 1-4 Ip address are reserved so start from 10..0.11.5 and above 5
+    private_ip_address            = "10.0.2.9"
+    #The first 1-4 Ip address are reserved so start from 10.0.11.5 and above 5
   }
 }
 
@@ -41,15 +41,15 @@ resource "azurerm_network_security_rule" "this_mysqloutbound_nsrule" {
 }
 
 resource "azurerm_network_security_rule" "this_bastion_nsrule" {
-  name                       = "${local.owner}-${var.bastion_nsrule}-${local.environment}"
-  priority                   = 101
-  direction                  = "Inbound"
-  access                     = "Allow"
-  protocol                   = "Tcp"
-  source_port_range          = "*"
-  destination_port_range     = "3306"
-  source_address_prefix      = "VirtualNetwork"
-  destination_address_prefix = "VirtualNetwork"
+  name                        = "${local.owner}-${var.bastion_nsrule}-${local.environment}"
+  priority                    = 101
+  direction                   = "Inbound"
+  access                      = "Allow"
+  protocol                    = "Tcp"
+  source_port_range           = "*"
+  destination_port_range      = "3306"
+  source_address_prefix       = "VirtualNetwork"
+  destination_address_prefix  = "VirtualNetwork"
   resource_group_name         = azurerm_resource_group.this_rg.name
   network_security_group_name = azurerm_network_security_group.this_vm_nsg.name
 }

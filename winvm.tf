@@ -24,7 +24,5 @@ resource "azurerm_windows_virtual_machine" "this_winvm" {
   identity {
     type         = "UserAssigned"
     identity_ids = [azurerm_user_assigned_identity.this_manageidentity.id]
-
-
   }
 }
